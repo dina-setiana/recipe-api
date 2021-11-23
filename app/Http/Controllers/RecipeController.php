@@ -58,6 +58,7 @@ class RecipeController extends Controller
                 'recipe' => [$recipe]
             ]);
         } catch (\Exception $e) {
+            logger()->error($e);
             return response()->json([
                 'message' => 'Recipe creation failed!',
             ], 404);

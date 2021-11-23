@@ -57,6 +57,8 @@ class CreateTable extends Migration
                 '2016-01-11 13:10:12'
             );"
         );
+
+        DB::statement("SELECT pg_catalog.setval('recipes_id_seq', 2, true);");
     }
 
     /**
