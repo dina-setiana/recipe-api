@@ -19,6 +19,6 @@ Route::prefix('recipes')->group(function () {
     Route::get('/', [RecipeController::class, 'index']);
     Route::get('/{id}', [RecipeController::class, 'show']);
     Route::post('/', [RecipeController::class, 'store']);
-    Route::put('/{id}', [RecipeController::class, 'update']);
+    Route::patch('/{id}', [RecipeController::class, 'update']);
     Route::delete('/{id}', [RecipeController::class, 'destroy']);
 });

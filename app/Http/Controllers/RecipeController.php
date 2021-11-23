@@ -21,7 +21,11 @@ class RecipeController extends Controller
             return response()->json(
                 [
                     'message' => 'Recipe details by id',
-                    'recipe' => [Recipe::findOrFail($id)]
+                    'recipe' => [Recipe::select(
+                        [
+                            'title', 'making_time', 'serves', 'ingredients', 'instructions', 'cost'
+                        ]
+                    )->findOrFail($id)]
                 ]
             );
         } catch (\Exception $e) {
@@ -48,8 +52,6 @@ class RecipeController extends Controller
                     'requied' => 'title, making_time, serves, ingredients, cost'
                 ], 200);
             }
-            $id = Recipe::max('id');
-            $request->merge(['id' => $id + 1]);
             $recipe = Recipe::create($request->all());
             return response()->json([
                 'message' => 'Recipe successfully created!',
