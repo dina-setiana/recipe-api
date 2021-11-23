@@ -46,7 +46,7 @@ class RecipeController extends Controller
                 return response()->json([
                     'message' => 'Recipe creation failed!',
                     'requied' => 'title, making_time, serves, ingredients, cost'
-                ], 404);
+                ], 200);
             }
             $id = Recipe::max('id');
             $request->merge(['id' => $id + 1]);
