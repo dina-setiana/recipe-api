@@ -12,6 +12,4 @@ class Recipe extends Model
     protected $fillable = [
         'title', 'making_time', 'serves', 'ingredients', 'instructions', 'cost'
     ];
-
-    protected $hidden = ['created_at', 'updated_at'];
 }
